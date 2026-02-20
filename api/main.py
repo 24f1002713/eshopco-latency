@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 # Handle OPTIONS explicitly (important for Vercel)
-@app.options("/api/latency")
+@app.options("/latency")
 async def options_handler():
     return JSONResponse(
         content={},
@@ -34,7 +34,7 @@ file_path = os.path.join(os.path.dirname(__file__), "..", "q-vercel-latency.json
 with open(file_path) as f:
     data = json.load(f)
 
-@app.post("/api/latency")
+@app.post("/latency")
 async def calculate_metrics(request: Request):
     body = await request.json()
     regions = body.get("regions", [])
