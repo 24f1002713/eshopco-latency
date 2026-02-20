@@ -58,4 +58,11 @@ async def calculate_metrics(request: Request):
             "breaches": sum(1 for l in latencies if l > threshold),
         }
 
-    return response
+    return JSONResponse(
+        content=response,
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+        },
+    )
