@@ -62,7 +62,7 @@ async def calculate_metrics(request: Request):
         }
 
     return JSONResponse(
-        content=response,
+        content={"regions": response},
         headers={
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "*",
