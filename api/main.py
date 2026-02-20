@@ -29,7 +29,7 @@ async def options_handler():
     )
 
 # Load telemetry
-file_path = os.path.join(os.path.dirname(__file__), "..", "telemetry.json")
+file_path = os.path.join(os.path.dirname(__file__), "..", "q-vercel-latency.json")
 
 with open(file_path) as f:
     data = json.load(f)
